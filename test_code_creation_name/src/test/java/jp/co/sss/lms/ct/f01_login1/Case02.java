@@ -46,6 +46,10 @@ public class Case02 {
 	void test01() {
 		// TODO ここに追加
 		driver.get("http://localhost:8080/lms");
+
+		WebElement welcomeMsg = driver.findElement(By.tagName("h2"));
+		assertEquals("ログイン", welcomeMsg.getText());
+
 		getEvidence(new Object() {
 		});
 	}
@@ -62,6 +66,7 @@ public class Case02 {
 
 		WebElement errorMsg = driver.findElement(By.cssSelector(".help-inline.error"));
 		assertEquals("* ログインに失敗しました。", errorMsg.getText());
+
 		getEvidence(new Object() {
 		});
 
