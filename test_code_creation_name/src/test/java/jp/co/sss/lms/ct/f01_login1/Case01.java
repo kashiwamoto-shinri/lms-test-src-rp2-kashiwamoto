@@ -1,6 +1,7 @@
 package jp.co.sss.lms.ct.f01_login1;
 
 import static jp.co.sss.lms.ct.util.WebDriverUtils.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,7 +10,9 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
@@ -44,6 +47,10 @@ public class Case01 {
 	void test01() {
 		// TODO ここに追加
 		driver.get("http://localhost:8080/lms");
+
+		WebElement welcomeMsg = driver.findElement(By.tagName("h2"));
+		assertEquals("ログイン", welcomeMsg.getText());
+
 		getEvidence(new Object() {
 		});
 
