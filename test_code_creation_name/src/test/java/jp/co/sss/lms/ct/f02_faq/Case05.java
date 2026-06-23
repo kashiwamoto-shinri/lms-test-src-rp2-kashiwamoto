@@ -129,6 +129,9 @@ public class Case05 {
 		// TODO ここに追加
 		driver.findElement(By.cssSelector("input[type='button'][value='クリア']")).click();
 
+		WebElement Msg = driver.findElement(By.id("form"));
+		assertEquals("", Msg.getText());
+
 		getEvidence(new Object() {
 		});
 	}
