@@ -115,6 +115,9 @@ public class Case05 {
 
 		driver.findElement(By.cssSelector("input[type='submit'][value='検索']")).click();
 
+		WebElement Msg = driver.findElement(By.xpath("//dt[.//span[text()='キャンセル料・途中退校について']]"));
+		assertEquals("Q.キャンセル料・途中退校について", Msg.getText());
+
 		getEvidence(new Object() {
 		});
 	}
