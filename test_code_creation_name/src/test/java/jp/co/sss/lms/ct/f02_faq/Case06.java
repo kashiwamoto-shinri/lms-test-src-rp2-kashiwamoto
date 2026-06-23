@@ -113,6 +113,12 @@ public class Case06 {
 		// TODO ここに追加
 		driver.findElement(By.linkText("【研修関係】")).click();
 
+		WebElement Msg = driver.findElement(By.xpath("//dt[.//span[text()='キャンセル料・途中退校について']]"));
+		assertEquals("Q.キャンセル料・途中退校について", Msg.getText());
+
+		WebElement Msg2 = driver.findElement(By.xpath("//dt[.//span[text()='研修の申し込みはどのようにすれば良いですか？']]"));
+		assertEquals("Q.研修の申し込みはどのようにすれば良いですか？", Msg2.getText());
+
 		getEvidence(new Object() {
 		});
 	}
@@ -122,7 +128,10 @@ public class Case06 {
 	@DisplayName("テスト06 検索結果の質問をクリックしその回答を表示")
 	void test06() {
 		// TODO ここに追加
-		driver.findElement(By.cssSelector("dl[id^='question-h']")).click();
+		driver.findElement(By.xpath("//dt[.//span[text()='キャンセル料・途中退校について']]")).click();
+
+		WebElement Msg = driver.findElement(By.cssSelector("dd[id^='answer-h']"));
+		assertEquals("A. 受講者の退職や解雇等、やむを得ない事情による途中終了に関してなど、事情をお伺いした上で、協議という形を取らせて頂きます。 弊社営業担当までご相談下さい。", Msg.getText());
 
 		getEvidence(new Object() {
 		});
